@@ -1,0 +1,13 @@
+[package]
+name = "lib-simulation"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+lib-neural-network = { path = "../neural-network" }
+lib-genetic-algorithm = {path = "../genetic-algorithm" }
+nalgebra = { version = "0.32.5", features = ["rand-no-std"] }
+test-case = "3.3.1"
+rand = "0.8"
