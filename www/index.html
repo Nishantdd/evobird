@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Neural Evo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        body {
+            background-color: #1a1b1e;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                Oxygen, Ubuntu, sans-serif;
+            color: #e4e5e7;
+            display: flex;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            padding: 2vh;
+            gap: 2vh;
+        }
+
+        .simulation-view {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #viewport {
+            background-color: #262526;
+            border-radius: 12px;
+            max-width: auto;
+            max-height: 96vh;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .controls-panel {
+            width: 300px;
+            background-color: #262526;
+            border-radius: 12px;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .panel-section {
+            margin-bottom: 24px;
+        }
+
+        .panel-title {
+            font-size: 1.2em;
+            margin-bottom: 16px;
+            color: #98971a;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .stat-item {
+            background-color: #1a1b1e;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #98971a;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        #train {
+            width: 100%;
+            padding: 12px;
+            background-color: #98971a;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        #train:hover {
+            background-color: #b8bb26;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="simulation-view">
+            <canvas id="viewport" width="800" height="800"></canvas>
+        </div>
+        <div class="controls-panel">
+            <div class="panel-section">
+                <h2 class="panel-title">Controls</h2>
+                <button id="train">Train 10 generations</button>
+            </div>
+            <div class="panel-section">
+                <h2 class="panel-title">Statistics</h2>
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <div class="stat-label">Generation</div>
+                        <div class="stat-value" id="generation-count">1</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Best Fitness</div>
+                        <div class="stat-value" id="best-fitness">0.00</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Average Fitness</div>
+                        <div class="stat-value" id="avg-fitness">0.00</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Population</div>
+                        <div class="stat-value" id="population">40</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./bootstrap.js"></script>
+</body>
+
+</html>
