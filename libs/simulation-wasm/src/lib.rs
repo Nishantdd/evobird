@@ -23,7 +23,7 @@ impl Simulation{
         match stats {
             Some(x) => {
                 format!(
-                    "min={:.2}, max={:.2}, avg={:.2}",
+                    "min={:.2} max={:.2} avg={:.2}",
                     x.min_fitness,
                     x.max_fitness,
                     x.avg_fitness,
@@ -36,7 +36,7 @@ impl Simulation{
         let stats = self.sim.train(&mut self.rng);
 
         format!(
-            "min={:.2}, max={:.2}, avg={:.2}",
+            "min={:.2} max={:.2} avg={:.2}",
             stats.min_fitness,
             stats.max_fitness,
             stats.avg_fitness,

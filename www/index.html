@@ -13,8 +13,8 @@
 
         html,
         body {
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
         body {
@@ -22,19 +22,20 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
                 Oxygen, Ubuntu, sans-serif;
             color: #e4e5e7;
-            display: flex;
         }
 
         .container {
             display: flex;
+            flex-direction: column;
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             padding: 2vh;
             gap: 2vh;
         }
 
         .simulation-view {
-            flex: 1;
+            height: 50vh;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -43,19 +44,39 @@
         #viewport {
             background-color: #262526;
             border-radius: 12px;
-            max-width: auto;
-            max-height: 96vh;
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
 
         .controls-panel {
-            width: 300px;
+            width: 100%;
+            flex-grow: 1;
             background-color: #262526;
             border-radius: 12px;
             padding: 20px;
-            overflow-y: auto;
+        }
+
+        @media (min-width: 768px) {
+            html, body {
+                overflow: hidden;
+                height: 100vh;
+            }
+            
+            .container {
+                flex-direction: row;
+                height: 100vh;
+            }
+
+            .simulation-view {
+                height: auto;
+                flex: 1;
+            }
+
+            .controls-panel {
+                width: 300px;
+                flex-grow: 0;
+            }
         }
 
         .panel-section {
@@ -112,7 +133,7 @@
 <body>
     <div class="container">
         <div class="simulation-view">
-            <canvas id="viewport" width="800" height="800"></canvas>
+            <canvas id="viewport" width="800" height="600"></canvas>
         </div>
         <div class="controls-panel">
             <div class="panel-section">

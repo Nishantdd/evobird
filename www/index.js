@@ -7,12 +7,16 @@ const generationCount = document.getElementById("generation-count");
 const bestScore = document.getElementById("best-fitness");
 const avgScore = document.getElementById("avg-fitness");
 
-document.getElementById("train").onclick = function () {
-    const res = simulation.train();
+const setResults = (res) => {
     const scores = res.split(" ");
     bestScore.innerHTML = scores[1].split("=")[1]
     avgScore.innerHTML = scores[2].split("=")[1]
     generationCount.innerHTML = Number(generationCount.innerHTML) + 10;
+}
+
+document.getElementById("train").onclick = function () {
+    const res = simulation.train();
+    setResults(res);
 };
 
 const viewport = document.getElementById("viewport");
@@ -57,10 +61,10 @@ CanvasRenderingContext2D.prototype.drawTriangle = function (
         x - Math.sin(rotation) * size * 1.5,
         y + Math.cos(rotation) * size * 1.5,
     );
-    this.fillStyle = "#FF596B";
-    this.fill();
-    // this.strokeStyle = '#FF596B';
-    // this.stroke();
+    // this.fillStyle = "#FF596B";
+    // this.fill();
+    this.strokeStyle = '#FF597B';
+    this.stroke();
 };
 
 CanvasRenderingContext2D.prototype.drawCircle = function (x, y, radius) {
@@ -70,6 +74,7 @@ CanvasRenderingContext2D.prototype.drawCircle = function (x, y, radius) {
     // | Circle's center.
     // ----- v -v
     this.arc(x, y, radius, 0, 2.0 * Math.PI);
+    
     // ------------------- ^ -^-----------^
     // | Range at which the circle starts and ends, in radians.
     // |
@@ -77,9 +82,7 @@ CanvasRenderingContext2D.prototype.drawCircle = function (x, y, radius) {
     // | only half of a circle, Pac-Man style.
     // ---
 
-    // this.fillStyle = '#ffe0e8';
     this.fillStyle = "#98971a";
-    // this.fillStyle = '#FF596B';
     this.fill();
 };
 
@@ -97,7 +100,7 @@ function redraw() {
 
     let result = simulation.step();
     if (result != "") {
-        generationCount.innerHTML = Number(generationCount.innerHTML) + 1;
+        setResults(result);
     }
 
     const world = simulation.world();
