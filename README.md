@@ -1,16 +1,16 @@
-# Evobird
+# 🦅 Evobird
 A genetic evolution simulator using genetics algorithm and neural network written in Rust and compiler to WebAssembly
 
 <div align="center">
 <br>
 
-<img src="assets/demo.png" width="700">
+<img src="assets/demo.webp" width="700">
 
 <br>
 </div>
 <br>
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - [Rust](https://www.rust-lang.org/tools/install)
