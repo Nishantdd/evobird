@@ -25,8 +25,8 @@ cargo install wasm-pack
 ```
 2. Clone the repository:
 ```bash
-git clone https://github.com/Nishantdd/Evobird.git
-cd Evobird
+git clone https://github.com/Nishantdd/evobird.git
+cd evobird
 ```
 3. Build the WebAssembly module:
 ```bash
